@@ -1,7 +1,7 @@
 # Bandplay
 You need a Click/Track Player for your band, but dont have the money for expensive gear? Your Windows Laptop is crashing if your playing a live show? Or maybe you just want an open source solution to play your clicks and tracks in your rehearsal room. 
 
-Just grab a Linux/Windows device with multiple outputs and start the program. 
+Just grab a Linux/Windows device with multiple outputs, insert your tracks and start the program. 
 If your device dont have more than one Audio Port, the cheapest solution could be to use the standard AUX Port as Output 1 and a "USB to AUX" Device as Output 2. 
 
 ## Usage
