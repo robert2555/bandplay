@@ -30,6 +30,15 @@ Just make shure, that these are the exact names of your track directories in you
 -> bandplay/tracks/Alienation/   
 -> bandplay/tracks/Observe/   
 
+## Multi Channel Output 
+If your using a device with multiple output channels like a Focusrite Scarlett 18i20, start like this:
+1. You first need to delete your existing "config" file
+3. Plug in your USB Interface
+4. Start the program
+5. Choose your Output channels (can be either Mono or Stereo)
+6. The program will now create prebuild files in "bandplay/tracks/yourSong/prebuild/" (One wav file with multiple channels for your click and song tracks) and it can take a while until it finishes its work. This is neccessary because you can only stream ONE File to your USB Interface. 
+7. If you want to change your click/song wav files in the future, dont forget to DELETE the prebuild files!
+
 
 ## How we use it
 Initialy I started to wrote this program for my own band, as we hadnt any device to play our clicks plus synths back then. So I grabbed my old netbook and an old Focusrite Scarlet 2i2 that I attached to the netbook via USB so that we could play the click track via the USB Interface and the synth via the AUX Netbook Port.
