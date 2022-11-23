@@ -30,7 +30,7 @@ Just make shure, that these are the exact names of your track directories in you
 -> bandplay/tracks/Alienation/   
 -> bandplay/tracks/Observe/   
 
-## Multi Channel Output 
+## Multichannel Output 
 If your using a device with multiple output channels like a Focusrite Scarlett 18i20, start like this:
 1. You first need to delete your existing "config" file
 3. Plug in your USB Interface
