@@ -20,7 +20,8 @@ The program reads from 2 files
 2. Backing track -> "song.wav"
 
 Location of your Clicktrack:   
-- bandplay/tracks/yourSong/click.wav   
+- bandplay/tracks/yourSong/click.wav  
+
 Location of your Backingtrack:   
 - bandplay/tracks/yourSong/song.wav
 
