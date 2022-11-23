@@ -19,9 +19,9 @@ The program reads from 2 files
 1. Click track -> "click.wav"
 2. Backing track -> "song.wav"
 
-Location of your Clicktrack:
-- bandplay/tracks/yourSong/click.wav
-Location of your Backingtrack:
+Location of your Clicktrack:   
+- bandplay/tracks/yourSong/click.wav   
+Location of your Backingtrack:   
 - bandplay/tracks/yourSong/song.wav
 
 ## Config (first start)
