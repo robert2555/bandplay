@@ -1,5 +1,6 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # Bandplay
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)   
+
 You need a Click/Track Player for your band, but dont have the money for expensive gear? Your Windows Laptop is crashing if your playing a live show? Or maybe you just want an open source solution to play your clicks and tracks in your rehearsal room. 
 
 Just grab a Linux/Windows device with multiple outputs, insert your tracks and start the program. 
