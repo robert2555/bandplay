@@ -1,6 +1,9 @@
 # Bandplay
 You need a Click/Track Player for your band, but dont have the money for expensive gear? Your Windows Laptop is crashing if your playing a live show (Hello Whitechapel :D)? Or maybe you just want an open source solution to play your clicks and tracks in your rehearsal room. 
 
+Just grab a Linux/Windows device with multiple outputs and start the program. 
+If your device dont have more than one Audio Port, the cheapest solution could be to use the standard AUX Port as Output 1 and a "USB to AUX" Device as Output 2. 
+
 ## Usage
 Determine the selection of tracks (in track dir) yourself
 ```
@@ -10,6 +13,16 @@ Play a list of tracks from a playlist
 ```
 python3 bandplay.py -d tracks -p playlist
 ```
+
+## Prepare your tracks
+The program reads from 2 files
+1. Click track -> "click.wav"
+2. Backing track -> "song.wav"
+
+Location of your Clicktrack:
+- bandplay/tracks/yourSong/click.wav
+Location of your Backingtrack:
+- bandplay/tracks/yourSong/song.wav
 
 ## Config (first start)
 You will get asked for which outputs you want to use, at the first start of the program. The settings you enter will then be saved in a file called "config" in the main directory. If you want to change your settings, you can either change the config file or just delete the existing one and start the program again. 
