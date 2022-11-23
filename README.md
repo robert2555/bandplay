@@ -11,8 +11,12 @@ Play a list of tracks from a playlist
 python3 bandplay.py -d tracks -p playlist
 ```
 
+## Config (first start)
+You will get asked for which outputs you want to use, at the first start of the program. The settings you enter will then be saved in a file called "config" in the main directory. If you want to change your settings, you can either change the config file or just delete the existing one and start the program again. 
+In most cases there will be multiple in and outputs you can choose from and it can be confusing at the first start. If you dont have any clue, just make shure you dont pick any inputs like "microphone XY", trial and error, and if you didnt get the right ones, delete the config and start again. 
+
 ## Playlist
-To play tracks from a playlist, just create a "playlist" file in your tracks dir and set the parameter like explained in the "Usage" section.
+To play tracks from a playlist, just create one or more "playlist" file in your tracks dir and set the parameter like explained in the "Usage" section.
 
 The content of a playlist file can look like this:
 ```
@@ -21,10 +25,10 @@ Alienation
 Observe
 ```
 
-Just make shure, that these are the exact names of your track directories in your tracks/ dir like this:
--> bandplay/tracks/EvacuateTheEarth/
--> bandplay/tracks/Alienation/
--> bandplay/tracks/Observe/
+Just make shure, that these are the exact names of your track directories in your tracks/ dir like this:   
+-> bandplay/tracks/EvacuateTheEarth/   
+-> bandplay/tracks/Alienation/   
+-> bandplay/tracks/Observe/   
 
 
 ## How we use it
