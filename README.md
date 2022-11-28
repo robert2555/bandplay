@@ -1,6 +1,7 @@
 # Bandplay
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Website etl](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://embracethelight.de/)
+[![Sponsor](https://img.shields.io/github/sponsors/robert2555)](https://github.com/sponsors/robert2555)
 
 You need a Click/Track Player for your band, but dont have the money for expensive gear? Your Windows Laptop is crashing if your playing a live show? Or maybe you just want an open source solution to play your clicks and tracks in your rehearsal room. 
 
