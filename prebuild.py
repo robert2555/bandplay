@@ -53,21 +53,20 @@ def build_soundfiles(track_dir, device):
         if song_array[0].size < 2:
             for channel in device.song_ch:
                 for index in range(song_array[:].size):
-                    track_array[index][channel] = song_array[index]
+                    track_array[index][channel-1] = song_array[index]
         # If song is a stereo WAV
         else:
             # Merge Stereo to mono if only one channel selected
             if len(device.song_ch) == 1:
-                for channel in device.song_ch:
-                    for index in range(song_array[:, 0].size):
-                        # Add both values together to get mono
-                        track_array[index][device.song_ch] = song_array[index][0] + song_array[index][1]
+                for index in range(song_array[:, 0].size):
+                    # Add both values together to get mono
+                    track_array[index][device.song_ch[0]] = song_array[index][0] + song_array[index][1]
             # Stereo processing
             else:
                 for channel in device.song_ch:
                     for index in range(song_array[:, 0].size):
                         # Merge Stereo to mono
-                        track_array[index][channel] = song_array[index][0] + song_array[index][1]
+                        track_array[index][channel-1] = song_array[index][0] + song_array[index][1]
 
     # Write click to selected output channels
     if click_array_exists:
@@ -75,13 +74,13 @@ def build_soundfiles(track_dir, device):
         if click_array[1].size < 2:
             for channel in device.click_ch:
                 for index in range(click_array[:].size):
-                    track_array[index][channel] = click_array[index]
+                    track_array[index][channel-1] = click_array[index]
         # if click a stereo wav
         else:
             for channel in device.click_ch:
                 for index in range(click_array[:, 0].size):
                     # Merge Stereo to mono
-                    track_array[index][channel] = click_array[index][0] + click_array[index][1]
+                    track_array[index][channel-1] = click_array[index][0] + click_array[index][1]
 
     dir_prebuild = os.path.join(track_dir, "prebuild")
     if not os.path.exists(dir_prebuild):
