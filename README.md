@@ -5,7 +5,7 @@
 
 You need a Click/Track Player for your band, but dont have the money for expensive gear? Your Windows Laptop is crashing if your playing a live show? Or maybe you just want an open source solution to play your clicks and tracks in your rehearsal room. 
 
-Just grab a Linux/Windows device with multiple outputs, insert your tracks and start the program. 
+Just grab a Linux/Windows device with multiple outputs (or an external USB Interface), insert your tracks and start the program. 
 If your device dont have more than one Audio Port, the cheapest solution could be to use the standard AUX Port as Output 1 and a "USB to AUX" Device as Output 2. 
 
 ## Usage
@@ -50,7 +50,7 @@ Just make shure, that these are the exact names of your track directories in you
 
 ## Multichannel Output 
 If your using a device with multiple output channels like a Focusrite Scarlett 18i20, start like this:
-1. You first need to delete your existing "config" file
+1. Delete your existing "config" file
 3. Plug in your USB Interface
 4. Start the program
 5. Choose your Output channels (can be either Mono or Stereo)
@@ -59,7 +59,7 @@ If your using a device with multiple output channels like a Focusrite Scarlett 1
 
 
 ## How we use it
-Initialy I started to wrote this program for my own band, as we hadnt any device to play our clicks plus synths back then. So I grabbed my old netbook and an old Focusrite Scarlet 2i2 that I attached to the netbook via USB so that we could play the click track via the USB Interface and the synth via the AUX Netbook Port.
+Initialy I started to wrote this program for my own band, as we didnt have any device to play our clicks plus synths back then. So I grabbed my old netbook and an old Focusrite Scarlet 2i2 that I attached to the netbook via USB so that we could play the click track via the USB Interface and the synth via the AUX Netbook Port.
 Today we use this program still with the old Netbook, but with the Focusrite 18i20 as the output device. Its connected via USB and the click and song tracks are played through different Outputs of the Focusrite Interface. 
 Just come to our shows to see this setup live in action :)
 
