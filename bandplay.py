@@ -280,7 +280,7 @@ def main():
     # Check for given Playlist
     if get_playlist_file():
         # Read playlist file
-        playlist = config.read_playlist(entry_path, playlist_file)
+        playlist = config.read_playlist(entry_path, get_playlist_file())
         # Go through every track in playlist
         for track in playlist:
             input("Press ENTER to play next track")
