@@ -129,55 +129,60 @@ def play_track(device, track_dir, state):
     # Set block size
     block_size = 2048
     # Create the track array with X channels
-    track_array = np.empty((2, device.channels), dtype='float32')
-
-    # Playback on MULTIPLE DEVICES (stereo)
-    # If device is for playing a Song
-    if not device.click_ch:
-        path = os.path.join(track_dir, "song.wav")
-        if os.path.exists(path):
-            with sf.SoundFile(path) as f:
-                # Load track into numpy array
-                track_array = f.read(dtype='float32')
-
-    # If device is for playing a Click
-    if not device.song_ch:
-        path = os.path.join(track_dir, "click.wav")
-        if os.path.exists(path):
-            with sf.SoundFile(path) as f:
-                # Load track into numpy array
-                track_array = f.read(dtype='float32')
-
-    # Playback on MULTI CHANNEL device
+#    track_array = np.empty((2, device.channels), dtype='float32')
+#
+#    # Playback on MULTIPLE DEVICES (stereo)
+#    # If device is for playing a Song
+#    if not device.click_ch:
+#        path = os.path.join(track_dir, "song.wav")
+#        if os.path.exists(path):
+#            with sf.SoundFile(path) as f:
+#                # Load track into numpy array
+#                track_array = f.read(dtype='float32')
+#
+#    # If device is for playing a Click
+#    if not device.song_ch:
+#        path = os.path.join(track_dir, "click.wav")
+#        if os.path.exists(path):
+#            with sf.SoundFile(path) as f:
+#                # Load track into numpy array
+#                track_array = f.read(dtype='float32')
+#
+#    # Playback on MULTI CHANNEL device
     device_track_path = os.path.join(track_dir, "prebuild", str(device.name + ".wav"))
-    # Check if there is a prebuild file
-    if os.path.exists(device_track_path):
-        print("Playing prebuild track...")
-        # Load prebuild device track
-        with sf.SoundFile(device_track_path) as f:
-            track_array = f.read(dtype='float32')
+#    # Check if there is a prebuild file
+#    if os.path.exists(device_track_path):
+#        print("Playing prebuild track...")
+#        # Load prebuild device track
+#        with sf.SoundFile(device_track_path) as f:
+#            print("loadin track")
+#            track_array = f.read(dtype='float32')
+#
+#    print("done")
+#    # Get track- and block size
+#    play_size = track_array[:, 0].size
+#    block_count = play_size / block_size
+#
+#    start_block = 0
+#    end_block = block_size
+#
+#
+#    # Go through track in steps of <block_size>
+#    for i in range(int(block_count)):
+#        # Save the block of data in block var (block of 2048 lists of X channels)
+#        block = track_array[start_block:end_block, :]
+#
+#        # Set the start/end of the next block
+#        start_block += block_size
+#        end_block += block_size
 
-    # Get track- and block size
-    play_size = track_array[:, 0].size
-    block_count = play_size / block_size
-
-    start_block = 0
-    end_block = block_size
-    # Go through track in steps of <block_size>
-    for i in range(int(block_count)):
-        # Save the block of data in block var (block of 2048 lists of X channels)
-        block = track_array[start_block:end_block, :]
-
-        # Set the start/end of the next block
-        start_block += block_size
-        end_block += block_size
-
+    for blocks in sf.blocks(device_track_path, blocksize=block_size,dtype='float32'):
         # Handle Resume/Play
         while state.paused:
             time.sleep(1)
         if state.running:
             # Write current block to output stream
-            device.stream.write(block)
+            device.stream.write(blocks)
         if not state.running:
             break
 
@@ -204,6 +209,7 @@ def play(track_dir, device_list):
         print("Starting...")
         # Start all threads
         for thread in threads:
+            print("thread started")
             thread.start()
 
         # Set a running state
@@ -272,9 +278,7 @@ def main():
                         print("done!")
 
     # Check for given Playlist
-    playlist_file = get_playlist_file()
-
-    if playlist_file:
+    if get_playlist_file():
         # Read playlist file
         playlist = config.read_playlist(entry_path, playlist_file)
         # Go through every track in playlist

@@ -47,40 +47,60 @@ def build_soundfiles(track_dir, device):
 
     track_array = np.empty((longest_track, device.channels), dtype='float32')
 
-    # Write click to selected output channels
+    # Write song to selected output channels
     if song_array_exists:
         # If song is a mono WAV
         if song_array[0].size < 2:
-            for channel in device.song_ch:
-                for index in range(song_array[:].size):
-                    track_array[index][channel-1] = song_array[index]
-        # If song is a stereo WAV
-        else:
-            # Merge Stereo to mono if only one channel selected
+            # if only one channel selected
             if len(device.song_ch) == 1:
                 for index in range(song_array[:, 0].size):
-                    # Add both values together to get mono
+                    track_array[index][device.song_ch[0]] = song_array[index]
+            # if multiple channels selected
+            else:
+                for channel in device.song_ch:
+                    for index in range(song_array[:].size):
+                        track_array[index][channel-1] = song_array[index]
+        # If song is a stereo WAV
+        else:
+            # if only one channel selected
+            if len(device.song_ch) == 1:
+                for index in range(song_array[:, 0].size):
+                    # Merge Stereo to Mono
                     track_array[index][device.song_ch[0]] = song_array[index][0] + song_array[index][1]
-            # Stereo processing
+            # if multiple channels selected
             else:
                 for channel in device.song_ch:
                     for index in range(song_array[:, 0].size):
+                        # TODO: No merge!?
                         # Merge Stereo to mono
                         track_array[index][channel-1] = song_array[index][0] + song_array[index][1]
 
     # Write click to selected output channels
     if click_array_exists:
-        # If click is a mono WAV
-        if click_array[1].size < 2:
-            for channel in device.click_ch:
-                for index in range(click_array[:].size):
-                    track_array[index][channel-1] = click_array[index]
+        # If click is a mono WAV 
+        if click_array[0].size < 2:
+	    # if only one channel selected
+            if len(device.click_ch) == 1:
+                for index in range(click_array[:, 0].size):
+                    track_array[index][device.click_ch[0]] = click_array[index]
+            # If multiple channels selected
+            else:
+                for channel in device.click_ch:
+                    for index in range(click_array[:].size):
+                        track_array[index][channel-1] = click_array[index]
         # if click a stereo wav
         else:
-            for channel in device.click_ch:
-                for index in range(click_array[:, 0].size):
-                    # Merge Stereo to mono
-                    track_array[index][channel-1] = click_array[index][0] + click_array[index][1]
+            # If only one channel selected
+            if len(device.click_ch) == 1:
+                for index in range(click_array[: ,0].size):
+		    # Merge Stereo to mono
+                    track_array[index][device.click_ch[0]] = click_array[index][0] + click_array[index][1]
+            # if multiple channels selected
+            else:
+                for channel in device.click_ch:
+                    for index in range(click_array[:, 0].size):
+                        # Merge Stereo to mono
+                        track_array[index][channel-1] = click_array[index][0] + click_array[index][1]
 
     dir_prebuild = os.path.join(track_dir, "prebuild")
     if not os.path.exists(dir_prebuild):
